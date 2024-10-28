@@ -23,7 +23,6 @@ Created with ❤️️ by [mntcodes.com](https://www.mntcodes.com)
 
 
 ![CNCA](./imgs/screenshot.PNG)
-
 ## 🚀 Features
 
 - **Custom Configuration**: Choose from a selection of popular libraries such as:
@@ -35,6 +34,8 @@ Created with ❤️️ by [mntcodes.com](https://www.mntcodes.com)
   - **Testing**: Jest, Cypress, React Testing Library
   - **Linting & Formatting**: Husky, Commitlint, Lint-Staged
   - And more!
+
+![CNCA](./imgs/screenshot_2.PNG)
 
 - **Built on Create Next App**: Utilizes `create-next-app` in the background to set up the initial project structure.
 
