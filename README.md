@@ -22,7 +22,7 @@ Created with ❤️️ by [mntcodes.com](https://www.mntcodes.com)
 `create-next-custom-app` is a CLI tool designed to simplify the creation of Next.js applications with custom configurations. It allows developers to choose from a wide range of popular libraries and tools, streamlining the setup process without requiring manual configuration.
 
 
-![CNCA](./imgs/screenshot.PNG)
+![CNCA](https://raw.githubusercontent.com/MedNT/create-next-custom-app/refs/heads/main/imgs/screenshot.PNG)
 ## 🚀 Features
 
 - **Custom Configuration**: Choose from a selection of popular libraries such as:
@@ -35,7 +35,7 @@ Created with ❤️️ by [mntcodes.com](https://www.mntcodes.com)
   - **Linting & Formatting**: Husky, Commitlint, Lint-Staged
   - And more!
 
-![CNCA](./imgs/screenshot_2.PNG)
+![CNCA](https://raw.githubusercontent.com/MedNT/create-next-custom-app/refs/heads/main/imgs/screenshot_2.PNG)
 
 - **Built on Create Next App**: Utilizes `create-next-app` in the background to set up the initial project structure.
 
