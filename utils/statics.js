@@ -8,3 +8,5 @@ export const nextJSVersionsChoices = [
   { name: 'NextJS 15', value: '15' },
   { name: 'NextJS 14', value: '14' },
 ];
+
+export const defaultAppName = "mynext-app"
