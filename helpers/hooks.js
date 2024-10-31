@@ -1,8 +1,10 @@
-import { dependenciesType } from '../utils/statics.js';
+import { dependenciesType, newReadmeData } from '../utils/statics.js';
 import fs from 'fs';
 import chalk from 'chalk';
 import { execa } from 'execa';
 import path from 'path';
+import process from 'process';
+
 
 /**
  * Return the package.json object into javascript object
@@ -87,4 +89,18 @@ export async function installDependencies(
       });
     }
   }
+}
+
+
+export function createCustomReadmeFile(projectName) {
+  // Path to the new Next.js app
+  const appPath = path.join(process.cwd(), projectName);
+
+  fs.writeFile(path.join(appPath, 'README.md'), newReadmeData, (err) => {
+    if (err) {
+      console.error(`Error writing to README file: ${err}`);
+    } else {
+      console.log('Custom content appended to README.md successfully!');
+    }
+  });
 }

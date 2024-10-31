@@ -6,6 +6,7 @@ import { execa } from 'execa';
 import welcome from './helpers/welcome.js';
 import { checkBoxPromptForProjectDetails } from './utils/mainPrompt.js';
 import {
+  createCustomReadmeFile,
   installDependencies,
   splitDependenciesByType,
 } from './helpers/hooks.js';
@@ -128,6 +129,10 @@ import {
       }
     }
 
+    /**
+     * Last Step: create custom README.md File
+     */
+    createCustomReadmeFile(projectName);
     /**
      * Custom Successful Finish Message
      */
