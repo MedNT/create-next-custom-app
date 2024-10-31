@@ -1,5 +1,6 @@
 import { additionalPackagesChoices } from "./packages.js";
 import { defaultAppName, nextJSVersionsChoices } from "./statics.js";
+import inquirer from "inquirer";
 
 // Prompt user for inputs using a check box
 export async function checkBoxPromptForProjectDetails() {

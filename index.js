@@ -2,8 +2,6 @@
 
 import chalk from 'chalk';
 import figures from 'figures';
-import fs from 'fs';
-import path from 'path';
 import { execa } from 'execa';
 import welcome from './helpers/welcome.js';
 import { checkBoxPromptForProjectDetails } from './utils/mainPrompt.js';

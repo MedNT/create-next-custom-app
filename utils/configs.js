@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { getPackageDotJson, putPackageDotJson } from '../helpers/hooks';
+import { getPackageDotJson, putPackageDotJson } from '../helpers/hooks.js';
 
 export async function commitlintConfig(packageName, projectName) {
     console.log(
