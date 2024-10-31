@@ -1,4 +1,5 @@
 # CNCA: create-next-custom-app [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/MedNT/create-next-custom-app)
+
 Created with ❤️️ by [mntcodes.com](https://www.mntcodes.com)
 
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
@@ -17,12 +18,10 @@ Created with ❤️️ by [mntcodes.com](https://www.mntcodes.com)
 ![Lint Staged](https://img.shields.io/badge/Lint%20Staged-000000?style=for-the-badge&logo=lint-staged&logoColor=white)
 ![ESLint](https://img.shields.io/badge/ESLint-000000?style=for-the-badge&logo=eslint&logoColor=white)
 
-
-
 `create-next-custom-app` is a CLI tool designed to simplify the creation of Next.js applications with custom configurations. It allows developers to choose from a wide range of popular libraries and tools, streamlining the setup process without requiring manual configuration.
 
-
 ![CNCA](https://raw.githubusercontent.com/MedNT/create-next-custom-app/refs/heads/main/imgs/screenshot.PNG)
+
 ## 🚀 Features
 
 - **Custom Configuration**: Choose from a selection of popular libraries such as:
@@ -57,7 +56,8 @@ npx create-next-custom-app
    npx create-next-custom-app
    ```
 
-2. **Follow the Prompts**: 
+2. **Follow the Prompts**:
+
    - You will be greeted with a welcome message.
    - Choose from a list of libraries you want to include in your project.
    - The tool will then create a new Next.js application and install the selected libraries.
@@ -84,7 +84,7 @@ Here are some examples of libraries you can choose from during the setup:
 
 ## 🤝 Open Source Contributions
 
-We believe in the power of community and collaboration! As `create-next-custom-app` evolves, we want to hear from you. 
+We believe in the power of community and collaboration! As `create-next-custom-app` evolves, we want to hear from you.
 
 ### 💡 Share Your Ideas
 
@@ -98,7 +98,6 @@ If you have suggestions for libraries or tools that you frequently use and would
 
 Together, we can build a powerful tool that meets the needs of developers everywhere. Thank you for your support and contributions!
 
-
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](https://opensource.org/licenses/MIT) file for details.
@@ -108,13 +107,12 @@ This project is licensed under the MIT License - see the [LICENSE](https://opens
 - Thanks to the maintainers of [Next.js](https://nextjs.org/) and the various libraries that make this tool possible.
 - Special thanks to the community for their continuous support and feedback.
 
-
 ## 💬 Contact
 
-Feel free to reach out for any questions or suggestions!  
+Feel free to reach out for any questions or suggestions!
 
 [About Me](https://mntcodes.com) <br/>
 [Twitter](https://x.com/NaciriTaoufik) <br/>
 [LinkedIn](https://www.linkedin.com/in/mednt/) <br/>
 [GitHub](https://github.com/MedNT) <br/>
-[Blog](https://mntcode.substack.com/) 
+[Blog](https://mntcode.substack.com/)
