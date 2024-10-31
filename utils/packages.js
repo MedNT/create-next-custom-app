@@ -71,7 +71,7 @@ export const additionalPackagesChoices = [
     type: dependenciesType.prod,
   },
   {
-    name: 'Framer Motion: for animations',
+    name: 'Framer Motion: for animations (not compatible for now with Nextjs15 - because of react 19.0.0-rc)',
     value: 'framer-motion',
     type: dependenciesType.prod,
   },

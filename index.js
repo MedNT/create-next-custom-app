@@ -74,10 +74,10 @@ import {
       );
       // intalling production based dependencies if exists
       if (prodDependencies.length > 0)
-        installDependencies(prodDependencies, 'prod', projectName);
+        await installDependencies(prodDependencies, 'prod', projectName);
       // development dependencies if exists
       if (devDependencies.length > 0)
-        installDependencies(devDependencies, 'dev', projectName);
+        await installDependencies(devDependencies, 'dev', projectName);
     }
     /**
      * End of dependencies installation process
@@ -91,27 +91,27 @@ import {
     if (selectedDependencies.length > 0) {
       // Setting up commitlint
       if (selectedDependencies.includes('@commitlint/cli')) {
-        commitlintConfig('CommitLint', projectName);
+        await commitlintConfig('CommitLint', projectName);
       }
 
       // Setting up prettier config
       if (selectedDependencies.includes('prettier')) {
-        prettierConfig('Prettier', projectName);
+        await prettierConfig('Prettier', projectName);
       }
 
       // Setting up husky files
       if (selectedDependencies.includes('husky')) {
-        huskyConfig('Husky', projectName);
+        await huskyConfig('Husky', projectName);
       }
 
       // Setting up react-query plugin
       if (selectedDependencies.includes('@tanstack/react-query')) {
-        reactqueryConfig('React Query', projectName);
+        await reactqueryConfig('React Query', projectName);
       }
 
       // adding lint-staged if selected
       if (selectedDependencies.includes('lint-staged')) {
-        lintstagedConfig('Lint Staged', projectName);
+        await lintstagedConfig('Lint Staged', projectName);
       }
 
       // adding commitlint to husky hooks if selected
@@ -119,12 +119,12 @@ import {
         selectedDependencies.includes('husky') &&
         selectedDependencies.includes('@commitlint/cli')
       ) {
-        huskyandCommitlintConfig('Husky with Commitlint', projectName);
+        await huskyandCommitlintConfig('Husky with Commitlint', projectName);
       }
 
       // custom storybook auto setup for nextjs if found
       if (selectedDependencies.includes('storybook')) {
-        storybookConfig('StoryBook', projectName);
+        await storybookConfig('StoryBook', projectName);
       }
     }
 
