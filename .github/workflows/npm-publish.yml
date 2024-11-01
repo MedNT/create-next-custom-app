@@ -47,6 +47,3 @@ jobs:
     environment:
       name: production
       url: ${{ github.event.head_commit.url }}
-
-    approval:
-      required: true
