@@ -1,14 +1,16 @@
 {
   "name": "create-next-custom-app",
   "version": "1.0.2",
-  "main": "./index.js",
+  "source": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "start": "node ./index.js",
+    "start": "node src/index.js",
     "format": "prettier --write .",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "build": "parcel build"
   },
   "bin": {
-    "create-next-custom-app": "./index.js"
+    "create-next-custom-app": "dist/index.js"
   },
   "author": "NACIRI TAOUFIK Mohamed",
   "license": "MIT",
@@ -35,6 +37,7 @@
     "@eslint/js": "^9.13.0",
     "eslint": "^9.13.0",
     "globals": "^15.11.0",
+    "parcel": "^2.12.0",
     "prettier": "^3.3.3"
   }
 }

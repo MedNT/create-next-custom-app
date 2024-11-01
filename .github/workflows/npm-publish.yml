@@ -1,0 +1,52 @@
+name: Publish to npm
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20.16.0'
+          registry-url: 'https://registry.npmjs.org'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build the project
+        run: npm run build
+
+      - name: Publish to npm
+        if: github.actor == 'mednt'
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        
+
+      - name: Approval required for deploy
+        if: github.actor != 'mednt'
+        uses: hmarr/auto-approve-action@v2.1.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+    # Manually add approval step
+    environment:
+      name: production
+      url: ${{ github.event.head_commit.url }}
+
+    approval:
+      required: true
