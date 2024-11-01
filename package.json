@@ -1,13 +1,14 @@
 {
   "name": "create-next-custom-app",
-  "version": "1.0.4",
+  "version": "1.0.3",
   "source": "src/index.js",
   "main": "dist/index.js",
   "scripts": {
     "start": "node src/index.js",
     "format": "prettier --write .",
     "lint": "eslint .",
-    "build": "parcel build"
+    "build": "parcel build && node ./scripts/add-shebang.js",
+    "add-shebang": "node ./scripts/add-shebang.js"
   },
   "bin": {
     "create-next-custom-app": "dist/index.js"

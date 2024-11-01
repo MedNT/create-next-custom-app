@@ -16,5 +16,8 @@ tests/
 # Ignore images (if not used in the package)
 imgs/
 
+# Ignore Scripts
+scripts/
+
 # Ignore linting configuration
 eslint.config.js
