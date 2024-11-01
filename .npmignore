@@ -3,3 +3,18 @@ node_modules/
 tests/
 .eslintrc
 .npmignore
+
+# Ignore Prettier Config
+.prettierrc.json
+
+# Ignore GitHub workflows
+.github/
+
+# Ignore Parcel cache
+.parcel-cache/
+
+# Ignore images (if not used in the package)
+imgs/
+
+# Ignore linting configuration
+eslint.config.js
