@@ -1,6 +1,6 @@
 {
   "name": "create-next-custom-app",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "source": "src/index.js",
   "main": "dist/index.js",
   "scripts": {
