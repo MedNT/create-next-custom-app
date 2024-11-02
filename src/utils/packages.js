@@ -1,5 +1,82 @@
 import { dependenciesType } from './statics.js';
 
+export const uiLibChoices = [
+  {
+    name: 'No',
+    value: 'false',
+    type: '',
+  },
+  {
+    name: 'Shadcn UI',
+    value: 'shadcnui',
+    type: dependenciesType.init,
+  },
+  {
+    name: 'Chakra UI',
+    value: 'chakraui',
+    type: dependenciesType.init,
+  },
+];
+
+export const formLibChoices = [
+  {
+    name: 'No',
+    value: 'false',
+    type: '',
+  },
+  {
+    name: 'Formik',
+    value: 'formik',
+    type: dependenciesType.prod,
+  },
+  {
+    name: 'Ract Form Hooks',
+    value: 'react-form-hooks',
+    type: dependenciesType.prod,
+  },
+];
+
+export const schemaLibchoices = [
+  {
+    name: 'No',
+    value: 'false',
+    type: '',
+  },
+  {
+    name: 'Zod',
+    value: 'zod',
+    type: dependenciesType.prod,
+  },
+  {
+    name: 'Yup',
+    value: 'yup',
+    type: dependenciesType.prod,
+  },
+];
+
+export const ormLibChoices = [
+  {
+    name: 'No',
+    value: 'false',
+    type: '',
+  },
+  {
+    name: 'Prisma: For database management and ORM',
+    value: 'prisma',
+    type: dependenciesType.prod,
+  },
+  {
+    name: 'TypeORM: For SQL databases',
+    value: 'prisma',
+    type: dependenciesType.prod,
+  },
+  {
+    name: 'Mongoose: For working with MongoDB',
+    value: 'mongoose',
+    type: dependenciesType.prod,
+  },
+];
+
 export const additionalPackagesChoices = [
   {
     name: 'Husky: for git hooks',
@@ -36,38 +113,8 @@ export const additionalPackagesChoices = [
     type: dependenciesType.prod,
   },
   {
-    name: 'Formik: For managing form state and validation',
-    value: 'formik',
-    type: dependenciesType.prod,
-  },
-  {
-    name: 'React Hook Form: Another option for form management',
-    value: 'react-hook-form',
-    type: dependenciesType.prod,
-  },
-  {
-    name: 'Yup: For schema validation, often used with Formik or React Hook Form',
-    value: 'yup',
-    type: dependenciesType.prod,
-  },
-  {
     name: 'Zustand: for lightweight state management',
     value: 'zustand',
-    type: dependenciesType.prod,
-  },
-  {
-    name: 'Prisma: For database management and ORM',
-    value: 'prisma',
-    type: dependenciesType.prod,
-  },
-  {
-    name: 'Mongoose: For working with MongoDB',
-    value: 'mongoose',
-    type: dependenciesType.prod,
-  },
-  {
-    name: 'TypeORM: For SQL databases',
-    value: 'prisma',
     type: dependenciesType.prod,
   },
   {
