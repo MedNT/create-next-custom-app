@@ -30,8 +30,8 @@ export const formLibChoices = [
     type: dependenciesType.prod,
   },
   {
-    name: 'Ract Form Hooks',
-    value: 'react-form-hooks',
+    name: 'Ract Hook Form',
+    value: 'react-hook-form',
     type: dependenciesType.prod,
   },
 ];
