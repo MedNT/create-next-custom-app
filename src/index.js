@@ -11,12 +11,14 @@ import {
   splitDependenciesByType,
 } from './helpers/hooks.js';
 import {
+  chakrauiConfig,
   commitlintConfig,
   huskyandCommitlintConfig,
   huskyConfig,
   lintstagedConfig,
   prettierConfig,
   reactqueryConfig,
+  shadcnuiConfig,
   storybookConfig,
 } from './utils/configs.js';
 
@@ -70,7 +72,7 @@ import {
       // process start message indicator
       console.log(
         chalk.bgGreen(
-          `${figures.triangleRight} Installing additional selected dependencies...`
+          `${figures.triangleRight} Installing the custom selected dependencies...`
         )
       );
       // intalling production based dependencies if exists
@@ -121,6 +123,16 @@ import {
         selectedDependencies.includes('@commitlint/cli')
       ) {
         await huskyandCommitlintConfig('Husky with Commitlint', projectName);
+      }
+
+      // custom shadcn/ui auto setup for nextjs if found
+      if (selectedDependencies.includes('shadcnui')) {
+        await shadcnuiConfig('shadcn/ui', projectName);
+      }
+
+      // custom shadcn/ui auto setup for nextjs if found
+      if (selectedDependencies.includes('chakraui')) {
+        await chakrauiConfig('Chakra UI', projectName);
       }
 
       // custom storybook auto setup for nextjs if found

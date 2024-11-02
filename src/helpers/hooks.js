@@ -5,7 +5,6 @@ import { execa } from 'execa';
 import path from 'path';
 import process from 'process';
 
-
 /**
  * Return the package.json object into javascript object
  * @param {string} projectName the project folder name
@@ -36,23 +35,19 @@ export function putPackageDotJson(data, path) {
  * @returns
  */
 export function splitDependenciesByType(dependenciesWithType) {
-  // fetching developement dependencies
-  const devDependencies = dependenciesWithType
-    .filter((d) => d.type === dependenciesType.dev)
-    .map((d) => d.value.trim());
-  // fetching production dependencies
-  const prodDependencies = dependenciesWithType
-    .filter((d) => d.type === dependenciesType.prod)
-    .map((d) => d.value.trim());
-  // fetching dependencies that needs an init setup using npx (e.g. storybook)
-  const initDependencies = dependenciesWithType
-    .filter((d) => d.type === dependenciesType.init)
-    .map((d) => d.value.trim());
-
   return {
-    devDependencies,
-    prodDependencies,
-    initDependencies,
+    // fetching developement dependencies
+    devDependencies: dependenciesWithType
+      .filter((d) => d.type === dependenciesType.dev)
+      .map((d) => d.value.trim()),
+    // fetching production dependencies
+    prodDependencies: dependenciesWithType
+      .filter((d) => d.type === dependenciesType.prod)
+      .map((d) => d.value.trim()),
+    // fetching dependencies that needs an init setup using npx (e.g. storybook)
+    initDependencies: dependenciesWithType
+      .filter((d) => d.type === dependenciesType.init)
+      .map((d) => d.value.trim()),
   };
 }
 
@@ -90,7 +85,6 @@ export async function installDependencies(
     }
   }
 }
-
 
 export function createCustomReadmeFile(projectName) {
   // Path to the new Next.js app

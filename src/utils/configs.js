@@ -4,6 +4,11 @@ import chalk from 'chalk';
 import figures from 'figures';
 import { execa } from 'execa';
 import path from 'path';
+import {
+  findLayoutFilePath,
+  updateNextConfig,
+  wrapWithProvider,
+} from './advanced-configs/chakraui.js';
 
 export async function commitlintConfig(packageName, projectName) {
   console.log(
@@ -142,4 +147,66 @@ export async function storybookConfig(packageName, projectName) {
     stdio: 'inherit',
     cwd: projectName,
   });
+}
+
+export async function shadcnuiConfig(packageName, projectName) {
+  console.log(chalk.green(`Installing & Configuring ${packageName}...`));
+  await execa('npx', ['shadcn@latest', 'init', '-d'], {
+    stdio: 'inherit',
+    cwd: projectName,
+  });
+}
+
+export async function chakrauiConfig(packageName, projectName) {
+  console.log(
+    chalk.green(
+      `Installing & Configuring ${packageName} (this may take sometime)...`
+    )
+  );
+  await execa('npm', ['i', '@chakra-ui/react'], {
+    stdio: 'inherit',
+    cwd: projectName,
+  });
+  await execa('npm', ['i', '@emotion/react'], {
+    stdio: 'inherit',
+    cwd: projectName,
+  });
+  // adding a snippet for provider & color-mode (required)
+  // used to wrap the root layour children
+  await execa('npx', ['@chakra-ui/cli', 'snippet', 'add', 'provider'], {
+    stdio: 'inherit',
+    cwd: projectName,
+  });
+
+  /**
+   * Wrapping the layout.(ts|js) file with the Provider
+   * e.g: <Provider>{children}</Provider>
+   */
+
+  // getting the project root Path
+  // eslint-disable-next-line no-undef
+  const rootDir = path.join(process.cwd(), projectName)
+  // searching for the layout file path
+  const layoutFilePath = findLayoutFilePath(rootDir);
+
+  // if layout file not found, print error message
+  if (!layoutFilePath) {
+    console.log(
+      chalk.green(
+        `Could not locate the layout file. Please wrap your application with <Provider>{children}</Provider> manually!`
+      )
+    );
+  } else {
+    wrapWithProvider(layoutFilePath);
+  }
+
+  /**
+   * Optimizing Bundle Step
+   * by adding:
+   * {@code} experimental: {
+   *    optimizePackageImports: ["@chakra-ui/react"],
+   * 
+   * to the next.config.mjs file
+   */
+  updateNextConfig(rootDir);
 }

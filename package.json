@@ -1,6 +1,6 @@
 {
   "name": "create-next-custom-app",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "source": "src/index.js",
   "main": "dist/index.js",
   "scripts": {
@@ -25,7 +25,7 @@
     "typescript",
     "open-source"
   ],
-  "description": "",
+  "description": "A CLI tool designed to simplify the creation of Next.js applications with custom configurations.",
   "dependencies": {
     "chalk": "^5.3.0",
     "execa": "^9.4.1",

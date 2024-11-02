@@ -25,16 +25,26 @@ Created with ❤️️ by [mntcodes.com](https://www.mntcodes.com)
 ## 🚀 Features
 
 - **Custom Configuration**: Choose from a selection of popular libraries such as:
-  - **Database**: Prisma
+  - **UI Components Libraries**: Shadcn/ui, ChakraUI
+  - **Databases & ORMs**: Prisma, TypeORM, Mongoose
   - **State Management**: React Query
   - **UI Frameworks**: Storybook, Framer Motion
-  - **Form Handling**: Formik, Yup
+  - **Form Handling**: Formik, React-hook-form
+  - **Schema Validation**: Yup, Zod
   - **Authentication**: Next Auth
   - **Testing**: Jest, Cypress, React Testing Library
-  - **Linting & Formatting**: Husky, Commitlint, Lint-Staged
-  - And more!
+  - **Linting & Formatting**: Husky, Commitlint, Lint-Staged, Prettier
+  - And more!!!
 
 ![CNCA](https://raw.githubusercontent.com/MedNT/create-next-custom-app/refs/heads/main/imgs/screenshot_2.PNG)
+
+![CNCA](https://raw.githubusercontent.com/MedNT/create-next-custom-app/refs/heads/main/imgs/screenshot_3.PNG)
+
+![CNCA](https://raw.githubusercontent.com/MedNT/create-next-custom-app/refs/heads/main/imgs/screenshot_4.PNG)
+
+![CNCA](https://raw.githubusercontent.com/MedNT/create-next-custom-app/refs/heads/main/imgs/screenshot_5.PNG)
+
+![CNCA](https://raw.githubusercontent.com/MedNT/create-next-custom-app/refs/heads/main/imgs/screenshot_6.PNG)
 
 - **Built on Create Next App**: Utilizes `create-next-app` in the background to set up the initial project structure.
 
@@ -68,11 +78,14 @@ npx create-next-custom-app
 
 Here are some examples of libraries you can choose from during the setup:
 
+- **Shadcn/ui**: For UI components library.
+- **Chakra UI**: For UI components library.
+- **Zod**: For schema validation.
+- **Yup**: For schema validation.
 - **Prisma**: For ORM and database interactions.
 - **React Query**: For data fetching and state management.
 - **Storybook**: For UI component development.
 - **Formik**: For form handling.
-- **Yup**: For schema validation.
 - **Next Auth**: For authentication.
 - **Framer Motion**: For animations.
 - **Jest**: For unit testing.
@@ -81,6 +94,8 @@ Here are some examples of libraries you can choose from during the setup:
 - **Husky**: For Git hooks and pre-commit checks.
 - **Commitlint**: For linting commit messages.
 - **Lint-Staged**: For linting files in Git.
+
+**We're curently working on adding more and more !**
 
 ## 🤝 Open Source Contributions
 
