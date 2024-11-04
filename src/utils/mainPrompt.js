@@ -17,6 +17,17 @@ export async function checkBoxPromptForProjectDetails() {
         name: 'projectName',
         message: 'Project name: ',
         default: 'default-app',
+        validate: (input) => {
+          // regex rules
+          // must not contain a white space
+          // not start & not end with: - or _
+          // contains only alphanumeric characters: a-z, A-Z, 0-9
+          // has a limit of 20 characters
+          const regex = /^(?![-_])([a-zA-Z0-9-_]{1,20})(?<![-_])$/;
+          return regex.test(input)
+            ? true
+            : `❌ Invalid project name: follow the rules 👇\nRules:\n- Must not contains a white space\n- Must not contains underscore _ and hypen - at start & end\n- Accepts only alphanumeric characters: a-z, A-Z, 0-9, -, _\n- Has a limit of 20 characters`;
+        },
       },
       {
         type: 'list',
@@ -65,7 +76,7 @@ export async function checkBoxPromptForProjectDetails() {
     [uiLibChoices, uiLib],
     [formLibChoices, formLib],
     [schemaLibchoices, schemaLib],
-    [ormLibChoices, ormLib]
+    [ormLibChoices, ormLib],
   ];
 
   // Testing if user selected a choice or selected the 'No'
