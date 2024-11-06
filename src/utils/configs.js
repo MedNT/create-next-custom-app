@@ -6,6 +6,7 @@ import { execa } from 'execa';
 import path from 'path';
 import {
   findLayoutFilePath,
+  getProjectFileExtension,
   updateNextConfig,
   wrapWithProvider,
 } from './advanced-configs/chakraui.js';
@@ -72,23 +73,16 @@ export async function huskyConfig(packageName, projectName) {
   const commitMsgHookPath = path.join(huskyDir, 'commit-msg');
   fs.writeFileSync(
     commitMsgHookPath,
-    `#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-
-npx --no-install commitlint --edit "$1"`,
+    `npx --no-install commitlint --edit "$1"`,
     { mode: 0o755, encoding: 'utf8' }
   );
 
   // Create pre-commit hook for lint-staged
   const preCommitHookPath = path.join(huskyDir, 'pre-commit');
-  fs.writeFileSync(
-    preCommitHookPath,
-    `#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-
-npx lint-staged`,
-    { mode: 0o755, encoding: 'utf8' }
-  );
+  fs.writeFileSync(preCommitHookPath, `npx lint-staged`, {
+    mode: 0o755,
+    encoding: 'utf8',
+  });
 
   console.log(chalk.green('Husky and Git hooks set up successfully!'));
 }
@@ -157,6 +151,61 @@ export async function shadcnuiConfig(packageName, projectName) {
   });
 }
 
+export async function daisyuiConfig(packageName, projectName) {
+  console.log(chalk.green(`Installing & Configuring ${packageName}...`));
+  await execa('npm', ['install', '-D', 'daisyui@latest'], {
+    stdio: 'inherit',
+    cwd: projectName,
+  });
+
+  // root directory access
+  // eslint-disable-next-line no-undef
+  const rootDir = path.join(process.cwd(), projectName);
+  // getting the project extention
+  const projectExtention = getProjectFileExtension(rootDir);
+  // getting the tailwind.config.js Path
+  const filePath = path.join(
+    rootDir,
+    '.',
+    `tailwind.config.${projectExtention}`
+  );
+
+  // read file
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    // if file not found or error while reading
+    if (err) {
+      console.error(`Error reading file: ${err}`);
+      return;
+    }
+
+    // Check if daisyui is not already required in the plugins array
+    if (!data.includes("require('daisyui')")) {
+      // Insert require('daisyui') into the plugins array
+      const updatedData = data.replace(
+        /plugins:\s*\[([^\]]*)\]/,
+        (match, pluginsContent) => {
+          // If pluginsContent is empty, just add daisyui, else add a comma
+          const separator = pluginsContent.trim() ? ', ' : '';
+          return `plugins: [${pluginsContent}${separator}require('daisyui')]`;
+        }
+      );
+
+      // Write the modified content back to the file
+      fs.writeFile(filePath, updatedData, 'utf8', (err) => {
+        if (err) {
+          console.error(`Error writing file: ${err}`);
+        } else {
+          console.log(
+            chalk.green(
+              `daisyui successfully added to the plugins array in tailwind.config.${projectExtention}`
+            )
+          );
+        }
+      });
+    }
+  });
+}
+
 export async function chakrauiConfig(packageName, projectName) {
   console.log(
     chalk.green(
@@ -185,7 +234,7 @@ export async function chakrauiConfig(packageName, projectName) {
 
   // getting the project root Path
   // eslint-disable-next-line no-undef
-  const rootDir = path.join(process.cwd(), projectName)
+  const rootDir = path.join(process.cwd(), projectName);
   // searching for the layout file path
   const layoutFilePath = findLayoutFilePath(rootDir);
 
@@ -205,7 +254,7 @@ export async function chakrauiConfig(packageName, projectName) {
    * by adding:
    * {@code} experimental: {
    *    optimizePackageImports: ["@chakra-ui/react"],
-   * 
+   *
    * to the next.config.mjs file
    */
   updateNextConfig(rootDir);

@@ -1,4 +1,4 @@
-import { dependenciesType } from './statics.js';
+import { dependenciesType, librairies } from './statics.js';
 
 export const uiLibChoices = [
   {
@@ -8,12 +8,17 @@ export const uiLibChoices = [
   },
   {
     name: 'Shadcn UI',
-    value: 'shadcnui',
+    value: librairies.shadcnui,
+    type: dependenciesType.init,
+  },
+  {
+    name: 'Daisy UI',
+    value: librairies.daisyui,
     type: dependenciesType.init,
   },
   {
     name: 'Chakra UI',
-    value: 'chakraui',
+    value: librairies.chakraui,
     type: dependenciesType.init,
   },
 ];
@@ -26,12 +31,12 @@ export const formLibChoices = [
   },
   {
     name: 'Formik',
-    value: 'formik',
+    value: librairies.formik,
     type: dependenciesType.prod,
   },
   {
     name: 'Ract Hook Form',
-    value: 'react-hook-form',
+    value: librairies.react_hook_form,
     type: dependenciesType.prod,
   },
 ];
@@ -44,7 +49,7 @@ export const schemaLibchoices = [
   },
   {
     name: 'Zod',
-    value: 'zod',
+    value: librairies.zod,
     type: dependenciesType.prod,
   },
   {
@@ -62,17 +67,12 @@ export const ormLibChoices = [
   },
   {
     name: 'Prisma: For database management and ORM',
-    value: 'prisma',
-    type: dependenciesType.prod,
-  },
-  {
-    name: 'TypeORM: For SQL databases',
-    value: 'prisma',
+    value: librairies.prisma,
     type: dependenciesType.prod,
   },
   {
     name: 'Mongoose: For working with MongoDB',
-    value: 'mongoose',
+    value: librairies.mongoose,
     type: dependenciesType.prod,
   },
 ];
@@ -80,66 +80,66 @@ export const ormLibChoices = [
 export const additionalPackagesChoices = [
   {
     name: 'Husky: for git hooks',
-    value: 'husky',
+    value: librairies.husky,
     type: dependenciesType.dev,
     checked: true,
   },
   {
     name: 'Commitlint: for conventional commits',
-    value: '@commitlint/cli',
+    value: librairies.commitlint,
     type: dependenciesType.dev,
     checked: true,
   },
   {
     name: 'LintStaged: for linting',
-    value: 'lint-staged',
+    value: librairies.lint_staged,
     type: dependenciesType.dev,
     checked: true,
   },
   {
     name: 'Prettier: for code formatting',
-    value: 'prettier',
+    value: librairies.prettier,
     type: dependenciesType.dev,
     checked: true,
   },
   {
     name: 'NextAuth: for authentication',
-    value: 'next-auth',
+    value: librairies.next_auth,
     type: dependenciesType.prod,
   },
   {
     name: 'React Query: for server state sync',
-    value: '@tanstack/react-query',
+    value: librairies.react_query,
     type: dependenciesType.prod,
   },
   {
     name: 'Zustand: for lightweight state management',
-    value: 'zustand',
+    value: librairies.zustand,
     type: dependenciesType.prod,
   },
   {
     name: 'Framer Motion: for animations (not compatible for now with Nextjs15 - because of react 19.0.0-rc)',
-    value: 'framer-motion',
+    value: librairies.framer_motion,
     type: dependenciesType.prod,
   },
   {
     name: 'Storybook: for building UI components',
-    value: 'storybook',
+    value: librairies.storybook,
     type: dependenciesType.init,
   },
   {
     name: 'Jest: for unit testing',
-    value: 'jest',
+    value: librairies.jest,
     type: dependenciesType.dev,
   },
   {
     name: 'React Testing Library: For testing React components',
-    value: '@testing-library/react',
+    value: librairies.react_testing_library,
     type: dependenciesType.dev,
   },
   {
     name: 'Cypress: for end-to-end & component testing',
-    value: 'cypress',
+    value: librairies.cypress,
     type: dependenciesType.dev,
   },
 ];
