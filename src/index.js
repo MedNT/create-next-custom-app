@@ -13,6 +13,7 @@ import {
 import {
   chakrauiConfig,
   commitlintConfig,
+  daisyuiConfig,
   huskyandCommitlintConfig,
   huskyConfig,
   lintstagedConfig,
@@ -21,6 +22,7 @@ import {
   shadcnuiConfig,
   storybookConfig,
 } from './utils/configs.js';
+import { librairies } from './utils/statics.js';
 
 // Create Next.js Custom app Main Function
 (async function main() {
@@ -93,50 +95,55 @@ import {
      */
     if (selectedDependencies.length > 0) {
       // Setting up commitlint
-      if (selectedDependencies.includes('@commitlint/cli')) {
+      if (selectedDependencies.includes(librairies.commitlint)) {
         await commitlintConfig('CommitLint', projectName);
       }
 
       // Setting up prettier config
-      if (selectedDependencies.includes('prettier')) {
+      if (selectedDependencies.includes(librairies.prettier)) {
         await prettierConfig('Prettier', projectName);
       }
 
       // Setting up husky files
-      if (selectedDependencies.includes('husky')) {
+      if (selectedDependencies.includes(librairies.husky)) {
         await huskyConfig('Husky', projectName);
       }
 
       // Setting up react-query plugin
-      if (selectedDependencies.includes('@tanstack/react-query')) {
+      if (selectedDependencies.includes(librairies.react_query)) {
         await reactqueryConfig('React Query', projectName);
       }
 
       // adding lint-staged if selected
-      if (selectedDependencies.includes('lint-staged')) {
+      if (selectedDependencies.includes(librairies.lint_staged)) {
         await lintstagedConfig('Lint Staged', projectName);
       }
 
       // adding commitlint to husky hooks if selected
       if (
-        selectedDependencies.includes('husky') &&
-        selectedDependencies.includes('@commitlint/cli')
+        selectedDependencies.includes(librairies.husky) &&
+        selectedDependencies.includes(librairies.commitlint)
       ) {
         await huskyandCommitlintConfig('Husky with Commitlint', projectName);
       }
 
       // custom shadcn/ui auto setup for nextjs if found
-      if (selectedDependencies.includes('shadcnui')) {
+      if (selectedDependencies.includes(librairies.shadcnui)) {
         await shadcnuiConfig('shadcn/ui', projectName);
       }
 
-      // custom shadcn/ui auto setup for nextjs if found
-      if (selectedDependencies.includes('chakraui')) {
+      // custom daisyUI auto setup for nextjs if found
+      if (selectedDependencies.includes(librairies.daisyui)) {
+        await daisyuiConfig('Daisy UI', projectName);
+      }
+
+      // custom chakra/ui auto setup for nextjs if found
+      if (selectedDependencies.includes(librairies.chakraui)) {
         await chakrauiConfig('Chakra UI', projectName);
       }
 
       // custom storybook auto setup for nextjs if found
-      if (selectedDependencies.includes('storybook')) {
+      if (selectedDependencies.includes(librairies.storybook)) {
         await storybookConfig('StoryBook', projectName);
       }
     }

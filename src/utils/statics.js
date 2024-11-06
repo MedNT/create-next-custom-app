@@ -9,6 +9,29 @@ export const nextJSVersionsChoices = [
   { name: 'NextJS 14', value: '14' },
 ];
 
+export const librairies = {
+  'shadcnui': 'shadcnui',
+  'daisyui': 'daisyui',
+  'chakraui': 'chakraui',
+  'formik': 'formik',
+  'react_hook_form': 'react-hook-form',
+  'zod': 'zod',
+  'prisma': 'prisma',
+  'mongoose': 'mongoose',
+  'husky': 'husky',
+  'commitlint': '@commitlint/cli',
+  'lint_staged': 'lint-staged',
+  'prettier': 'prettier',
+  'next_auth': 'next-auth',
+  'react_query': '@tanstack/react-query',
+  'zustand': 'zustand',
+  'framer_motion': 'framer-motion',
+  'storybook': 'storybook',
+  'jest': 'jest',
+  'react_testing_library': '@testing-library/react',
+  'cypress': 'cypress'
+}
+
 export const defaultAppName = 'mynext-app';
 
 export const newReadmeData = `
