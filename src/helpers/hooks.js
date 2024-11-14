@@ -59,7 +59,8 @@ export function splitDependenciesByType(dependenciesWithType) {
 export async function installDependencies(
   dependencies,
   dependencyType,
-  projectName
+  projectName,
+  projectVersion
 ) {
   // intalling production based dependencies
   for (let i = 0; i < dependencies.length; i++) {
@@ -71,17 +72,35 @@ export async function installDependencies(
     );
     // if it's a production based dependency
     if (dependencyType === 'prod') {
-      await execa('npm', ['install', dependencies[i]], {
-        stdio: 'inherit',
-        cwd: projectName,
-      });
+      // a temporary test while nextjs15 is using react 19 canary version!
+      // TODO: to remove in the future
+      if(parseInt(projectVersion) === 15) {
+        await execa('npm', ['install', dependencies[i], '--legacy-peer-deps'], {
+          stdio: 'inherit',
+          cwd: projectName,
+        });
+      } else {
+        await execa('npm', ['install', dependencies[i]], {
+          stdio: 'inherit',
+          cwd: projectName,
+        });
+      }
     }
     // if it's a development based dependency
     else {
-      await execa('npm', ['install', '-D', dependencies[i]], {
-        stdio: 'inherit',
-        cwd: projectName,
-      });
+      // a temporary test while nextjs15 is using react 19 canary version!
+      // TODO: to remove in the future
+      if(parseInt(projectVersion) === 15) {
+        await execa('npm', ['install', '-D', dependencies[i], '--legacy-peer-deps'], {
+          stdio: 'inherit',
+          cwd: projectName,
+        });
+      } else {
+        await execa('npm', ['install', '-D', dependencies[i]], {
+          stdio: 'inherit',
+          cwd: projectName,
+        });
+      }
     }
   }
 }

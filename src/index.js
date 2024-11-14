@@ -79,10 +79,10 @@ import { librairies } from './utils/statics.js';
       );
       // intalling production based dependencies if exists
       if (prodDependencies.length > 0)
-        await installDependencies(prodDependencies, 'prod', projectName);
+        await installDependencies(prodDependencies, 'prod', projectName, version);
       // development dependencies if exists
       if (devDependencies.length > 0)
-        await installDependencies(devDependencies, 'dev', projectName);
+        await installDependencies(devDependencies, 'dev', projectName, version);
     }
     /**
      * End of dependencies installation process
